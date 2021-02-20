@@ -8,7 +8,7 @@ function onOff() {
 
 // framework Vuejs
 new Vue({
-  el: '.descricao',
+  el: '#title',
   data: {
     titulo: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   }
