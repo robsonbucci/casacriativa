@@ -7,8 +7,15 @@ function onOff() {
 }
 
 // framework Vuejs
-new Vue({
+const sectionTitle = new Vue({
   el: '#title',
+  data: {
+    titulo: 'em exibição'
+  }
+})
+
+const sectionDivDesc = new Vue({
+  el: '.descricao',
   data: {
     titulo: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
   }
