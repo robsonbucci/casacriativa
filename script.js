@@ -6,6 +6,7 @@ function onOff() {
   document.querySelector("#modal").classList.toggle("addScroll");
 }
 
+// framework Vuejs
 new Vue({
   el: '.descricao',
   data: {
