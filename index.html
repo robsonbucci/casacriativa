@@ -1,121 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Casa Criativa</title>
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap"
-      rel="stylesheet"
-    />
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    
-  </head>
-  
-  <body>
-    <div id="container">
-      <section id="intro">
-        <header>
-          <a href="/">
-            <img src="https://cdn.glitch.com/b077a9c6-1ef4-4f98-bef1-a35e2ad058f0%2FLogo.png?v=1613762981383
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Casa Criativa</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap"
+    rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+
+<body>
+  <div id="container">
+    <section id="intro">
+      <header>
+        <a href="/">
+          <img src="https://cdn.glitch.com/b077a9c6-1ef4-4f98-bef1-a35e2ad058f0%2FLogo.png?v=1613762981383
             " alt="Imagem da logomarca" />
-          </a>
-        </header>
+        </a>
+      </header>
 
-        <main>
-          <p>
-            Ficar em casa em períodos longos, não deve ser nada fácil.
-          </p>
+      <main>
+        <p>
+          Ficar em casa em períodos longos, não deve ser nada fácil.
+        </p>
 
-          <p>
-            Por isso iremos catalogar
-            <strong
-              >ideias, brincadeiras, jogos, filmes, livros, cursos,
-              dicas</strong
-            >
-            e tudo que for necessário para tornar nosso momento mais
-            interessante.
-          </p>
+        <p>
+          Por isso iremos catalogar
+          <strong>ideias, brincadeiras, jogos, filmes, livros, cursos,
+            dicas</strong>
+          e tudo que for necessário para tornar nosso momento mais
+          interessante.
+        </p>
 
-          <p>
-            Comece clicando em "ver ideias" para ver as ideias cadastradas e
-            contribua adicionando a sua ideia.
-          </p>
-        </main>
+        <p>
+          Comece clicando em "ver ideias" para ver as ideias cadastradas e
+          contribua adicionando a sua ideia.
+        </p>
+      </main>
 
-        <section id="buttons">
-          <button onclick="onOff()">+ Adicionar Ideia</button>
-          <a href="/ideias.html" class="button">Ver Ideias </a>
-        </section>
-
-        <footer>
-          <p id="footer">
-            Com 💓
-            <a href="http://rocketseat.com.br" target="_blank">Rocketseat</a>
-          </p>
-        </footer>
+      <section id="buttons">
+        <button onclick="onOff()">+ Adicionar Ideia</button>
+        <a href="/ideias.html" class="button">Ver Ideias </a>
       </section>
 
-      <section id="last-ideias">
-        <div class="idea" v-for="idea in ideas">
-          <img :src="idea.img" alt="Imagem de Exercícios" />
+      <footer>
+        <p id="footer">
+          Com 💓
+          <a href="http://rocketseat.com.br" target="_blank">Rocketseat</a>
+        </p>
+      </footer>
+    </section>
 
-          <div class="content">
-            <h3>{{idea.title}}</h3>
+    <section id="last-ideias">
+      {{ exibirIdeas() }}
+      <div class="idea" v-for="idea in lastIdeas">
+        <img :src="idea.img" alt="Imagem de Exercícios" />
 
-            <p>{{idea.category}}</p>
+        <div class="content">
+          <h3>{{idea.title}}</h3>
 
-            <div class="descricao">
-              {{idea.description}}
-            </div>
+          <p>{{idea.category}}</p>
 
-            <a :href="idea.url">Ir para ideia</a>
+          <div class="descricao">
+            {{idea.description}}
           </div>
-      </section>
+
+          <a :href="idea.url">Ir para ideia</a>
+        </div>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="hide">
+    <div class="content">
+      <h1>Nova Ideia</h1>
+
+      <form action="">
+        <div class="input-wraper">
+          <label for="title">Título da ideia</label>
+          <input type="text" name="title" />
+        </div>
+
+        <div class="input-wraper">
+          <label for="category">Categoria</label>
+          <input type="text" name="category" />
+        </div>
+
+        <div class="input-wraper">
+          <label for="image">Link da imagem</label>
+          <input type="url" name="image" />
+        </div>
+
+        <div class="input-wraper">
+          <label for="description">Degite uma descrição para esta ideia</label>
+          <textarea name="description" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="input-wraper">
+          <label for="link">Link da ideia</label>
+          <input type="url" name="link" />
+        </div>
+
+        <a href="#" onclick="onOff()">Voltar</a>
+        <button>Salvar</button>
+      </form>
     </div>
+  </div>
+  <script src="/script.js" defer></script>
+</body>
 
-    <!-- Modal -->
-    <div id="modal" class="hide">
-      <div class="content">
-        <h1>Nova Ideia</h1>
-
-        <form action="">
-          <div class="input-wraper">
-            <label for="title">Título da ideia</label>
-            <input type="text" name="title" />
-          </div>
-
-          <div class="input-wraper">
-            <label for="category">Categoria</label>
-            <input type="text" name="category" />
-          </div>
-
-          <div class="input-wraper">
-            <label for="image">Link da imagem</label>
-            <input type="url" name="image" />
-          </div>
-
-          <div class="input-wraper">
-            <label for="description"
-              >Degite uma descrição para esta ideia</label
-            >
-            <textarea name="description" cols="30" rows="10"></textarea>
-          </div>
-
-          <div class="input-wraper">
-            <label for="link">Link da ideia</label>
-            <input type="url" name="link" />
-          </div>
-
-          <a href="#" onclick="onOff()">Voltar</a>
-          <button>Salvar</button>
-        </form>
-      </div>
-    </div>
-    <script src="/script.js" defer></script>
-  </body>
 </html>

@@ -7,16 +7,17 @@ function onOff() {
 }
 
 // framework Vuejs
-const sectionTitle = new Vue({
-  el: '#page-ideas #title',
-  data: {
-    titulo: 'em exibição'
-  }
-})
+// new Vue({
+//   el: '#page-ideas #title',
+//   data: {
+//     titulo: 'em exibição'
+//   }
+// })
 
 new Vue({
   el: '#page-ideas #ideas, #container #last-ideias',
   data: {
+    lastIdeas: [],
     ideas: [
       {
         'img': 'https://www.flaticon.com/premium-icon/icons/svg/3242/3242257.svg',
@@ -61,5 +62,15 @@ new Vue({
         'url': "#",
       },
     ]
+  },
+  methods: {
+    exibirIdeas() {
+      for (idea of this.ideas.reverse()) {
+        console.log(this.lastIdeas);
+        if (this.lastIdeas.length < 2) {
+          this.lastIdeas.push(idea)
+        }
+      }
+    }
   }
 })
