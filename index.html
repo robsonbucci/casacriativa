@@ -61,71 +61,20 @@
       </section>
 
       <section id="last-ideias">
-        <div class="idea">
-          <img
-            src="https://www.flaticon.com/premium-icon/icons/svg/3242/3242257.svg"
-            alt="Imagem de Exercícios"
-          />
+        <div class="idea" v-for="idea in ideas">
+          <img :src="idea.img" alt="Imagem de Exercícios" />
 
           <div class="content">
-            <h3>Cursos de Programação</h3>
+            <h3>{{idea.title}}</h3>
 
-            <p>Estudo</p>
-
-            <div class="descricao">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-              laboriosam molestias quidem ut, voluptas aperiam modi non
-              temporibus reprehenderit odit ipsa, distinctio ducimus dignissimos
-              a numquam, esse facilis nam earum.
-            </div>
-
-            <a href="#">Ir para ideia</a>
-          </div>
-        </div>
-
-        <div class="idea">
-          <img
-            src="https://www.flaticon.com/premium-icon/icons/svg/3242/3242372.svg"
-            alt="Imagem de recurso de programação"
-          />
-
-          <div class="content">
-            <h3>Exercícios</h3>
-
-            <p>Saúde</p>
+            <p>{{idea.category}}</p>
 
             <div class="descricao">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-              laboriosam molestias quidem ut, voluptas aperiam modi non
-              temporibus reprehenderit odit ipsa, distinctio ducimus dignissimos
-              a numquam, esse facilis nam earum.
+              {{idea.description}}
             </div>
 
-            <a href="#">Ir para ideia</a>
+            <a :href="idea.url">Ir para ideia</a>
           </div>
-        </div>
-
-        <div class="idea">
-          <img
-            src="https://www.flaticon.com/premium-icon/icons/svg/3242/3242355.svg"
-            alt="Imagem Meditação"
-          />
-
-          <div class="content">
-            <h3>Meditação</h3>
-
-            <p>Leia a Bíblia</p>
-
-            <div class="descricao">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-              laboriosam molestias quidem ut, voluptas aperiam modi non
-              temporibus reprehenderit odit ipsa, distinctio ducimus dignissimos
-              a numquam, esse facilis nam earum.
-            </div>
-
-            <a href="#">Ir para ideia</a>
-          </div>
-        </div>
       </section>
     </div>
 
